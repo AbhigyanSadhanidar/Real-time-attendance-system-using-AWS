@@ -1,7 +1,12 @@
 # Real-Time Attendance System using AWS Rekognition
 
-A serverless facial recognition-based attendance system built using AWS services such as Rekognition, Lambda, S3, and DynamoDB. Users capture their face through a webcam interface, and attendance is automatically recorded if a match is found.
+This project demonstrates how key AWS services like Amazon S3, AWS Lambda, Amazon Rekognition, and Amazon DynamoDB can work together to create a real-time, serverless facial recognition attendance system.
 
+The frontend is built using simple HTML, CSS, and JavaScript, allowing users to open a static web page, capture an image via webcam, and upload it directly to an S3 bucket using a pre-signed URL. When a new image is uploaded, a Lambda function is triggered. It invokes Amazon Rekognition to detect and compare the face with stored images in the Rekognition collection.
+
+If a match is found, the user's attendance is recorded in DynamoDB along with a timestamp. CloudWatch logs are also generated for observability and debugging.
+
+This architecture is fully serverless, ensuring scalability, low maintenance, and cost efficiency — ideal for smart classroom or office check-in systems
 ---
 
 ## 🧭 System Architecture
@@ -23,8 +28,8 @@ A serverless facial recognition-based attendance system built using AWS services
 
 ## 🧱 Tech Stack
 
-- **Frontend**: React.js (in `/webcamui`)
-- **Backend API**: Node.js Express server (in `/S3-upload-api`)
+- **Frontend**: html, css and js (in `/webcamui`)
+- **Backend API**: pre-signed url (in `/S3-upload-api`)
 - **Image Processing**: AWS Rekognition (triggered via Lambda)
 - **Storage**: Amazon S3
 - **Database**: DynamoDB
